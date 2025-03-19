@@ -8,7 +8,7 @@ A deep learning project using PyTorch to classify American Sign Language alphabe
 ## 🏗️ Model
 - CNN or ResNet18-based classifier
 - Trained using PyTorch
-- Achieved XX% accuracy on validation set
+- Achieved 92% accuracy on Test set and 100% on Validation
 
 ## 📦 How to Run
 
