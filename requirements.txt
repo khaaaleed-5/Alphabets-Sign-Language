@@ -1,0 +1,8 @@
+```txt
+torch
+torchvision
+matplotlib
+scikit-learn
+tqdm
+numpy
+Pillow
