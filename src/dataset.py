@@ -50,5 +50,5 @@ def get_test_dataloaders(test_dir, batch_size=64):
                     label_tensor = torch.tensor(labels)
 
                     test_dataset = TensorDataset(test_tensor, label_tensor)
-                    test_loader = DataLoader(test_dataset, batch_size=64, shuffle=False)
+                    test_loader = DataLoader(test_dataset, batch_size=batch_size, shuffle=False)
     return test_loader, class_names

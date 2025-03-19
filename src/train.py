@@ -5,14 +5,13 @@ from src.model import get_model
 from src.dataset import get_dataloaders
 import matplotlib.pyplot as plt
 
-def train_model():
+def train_model(data_dir):
     train_losses = []
     val_losses = []
     train_accuracies = []
     val_accuracies = []
 
     device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
-    data_dir = "./data/asl_alphabet_train"
     train_loader, val_loader, classes, num_classes = get_dataloaders(data_dir)
     model = get_model(num_classes).to(device)
     

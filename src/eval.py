@@ -8,7 +8,7 @@ from src.model import get_model
 
 
 
-def evaluate_model(checkpoint_path, test_dir):
+def evaluate_model(test_dir):
     device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
     val_loader, classes = get_test_dataloaders(test_dir)
     best_weights = "/outputs/best_model.pth"
