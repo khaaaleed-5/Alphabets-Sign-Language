@@ -1,4 +1,4 @@
-# ASL Classifier 🤟
+# ASL Classifier
 
 A deep learning project using PyTorch to classify American Sign Language alphabets from images.
 
