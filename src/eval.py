@@ -2,24 +2,19 @@ import torch
 from src.dataset import get_test_dataloaders
 from sklearn.metrics import confusion_matrix, ConfusionMatrixDisplay
 import matplotlib.pyplot as plt
-import numpy as np
 import torch.nn as nn
-import torchvision.models as models
+from src.model import get_model
 
 
 
-def get_model(model_path,num_classes):
-    model = models.resnet18(pretrained=True)
-    model.fc = nn.Linear(model.fc.in_features, num_classes)
-    # Load best weights
-    model.load_state_dict(torch.load(model_path))
-    return model
 
 def evaluate_model(checkpoint_path, test_dir):
     device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
     val_loader, classes = get_test_dataloaders(test_dir)
-    model_path = "/outputs/best_model.pth"
-    model = get_model(model_path, len(classes)).to(device)
+    best_weights = "/outputs/best_model.pth"
+    model = get_model(len(classes)).to(device)
+    # Load best weights
+    model.load_state_dict(torch.load(best_weights))
     model.eval()
 
     all_preds = []
