@@ -13,7 +13,7 @@ A deep learning project using PyTorch to classify American Sign Language alphabe
 ## 📦 How to Run
 
 ```bash
-git clone https://github.com/yourusername/asl-sign-language-classifier.git
+git clone https://github.com/khaaaleed-5/asl-sign-language-classifier.git
 cd asl-sign-language-classifier
 pip install -r requirements.txt
 
