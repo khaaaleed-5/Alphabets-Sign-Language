@@ -9,7 +9,7 @@ from torch.utils.data import TensorDataset, DataLoader
 transform = transforms.Compose([
         transforms.Resize((224, 224)),
         transforms.ToTensor(),
-        transforms.Normalize([0.5]*3, [0.5]*3)
+        transforms.Normalize([0.5]*3, [0.5]*3)  # Normalize to [-1, 1] for RGB channels
     ])
 
 def get_dataloaders(data_dir, batch_size=64):
@@ -45,10 +45,9 @@ def get_test_dataloaders(test_dir, batch_size=64):
                     image = transform(image)
                     test_images.append(image)
                     image_paths.append(filename)
-                    test_tensor = torch.stack(test_images)
-
-                    label_tensor = torch.tensor(labels)
-
-                    test_dataset = TensorDataset(test_tensor, label_tensor)
-                    test_loader = DataLoader(test_dataset, batch_size=batch_size, shuffle=False)
+                
+    test_tensor = torch.stack(test_images)
+    label_tensor = torch.tensor(labels)
+    test_dataset = TensorDataset(test_tensor, label_tensor)
+    test_loader = DataLoader(test_dataset, batch_size=batch_size, shuffle=False)
     return test_loader, class_names

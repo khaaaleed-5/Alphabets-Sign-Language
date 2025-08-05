@@ -71,7 +71,7 @@ def train_model(data_dir):
         if val_acc > best_val_acc:
             best_val_acc = val_acc
             torch.save(model.state_dict(), save_path)
-            print("✅ Saved best model!")
+            print("Saved best model!")
 
         print(f"Epoch {epoch+1}/{epochs}, Loss: {running_loss/len(train_loader):.4f}")
 
